@@ -27,7 +27,7 @@ public:
             mini = min(mini, bloomDay[i]);
             maxi = max(maxi, bloomDay[i]);
         }
-        long long low = mini, high = maxi, mid, time;
+        long long low = mini, high = maxi, mid;
         while (low <= high) {
             mid = (high + low) / 2;
             if (checkBoquests(bloomDay, mid, k, m))
