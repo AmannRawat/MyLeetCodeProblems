@@ -1,0 +1,73 @@
+else if (top != 10 - 1)
+    {
+        if (stack[top] == '(')
+        {
+            if (prece(stack[top]) < prece(string[i]))
+            {
+                push(stack, &top, string[i]);
+            }
+            else if (prece(stack[top]) > prece(string[i]))
+            {
+                while (prece(stack[top]) > prece(string[i]))
+                {
+                    idx++;
+                    output[idx] = pop(stack, &top);
+                }
+            }
+            else if (prece(stack[top]) == prece(string[i]))
+            {
+                if (associa(stack[top]) == '2')
+                {
+                    push(stack, &top, string[i]);
+                }
+                else
+                {
+                    idx++;
+                    output[idx] = pop(stack, &top);
+                    push(stack, &top, string[i]);
+                }
+            }
+        }
+        else if (string[i] == ')')
+        {
+            // int j = top;
+            while (stack[top] != '(')
+            {
+                idx++;
+                output[idx] = pop(stack, &top);
+                // j--;
+            }
+        }
+        else
+        {
+            if (prece(stack[top]) < prece(string[i]))
+            {
+                push(stack, &top, string[i]);
+            }
+            else if (prece(stack[top]) > prece(string[i]))
+            {
+                while (prece(stack[top]) > prece(string[i]))
+                {
+                    idx++;
+                    output[idx] = pop(stack, &top);
+                }
+            }
+            else if (prece(stack[top]) == prece(string[i]))
+            {
+                if (associa(stack[top]) == '2')
+                {
+                    push(stack, &top, string[i]);
+                }
+                else
+                {
+                    idx++;
+                    output[idx] = pop(stack, &top);
+                    push(stack, &top, string[i]);
+                }
+            }
+        }
+    }
+    else
+    {
+        printf("Stack Overflow");
+    }
