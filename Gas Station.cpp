@@ -18,7 +18,6 @@ public:
                 currentBalance = 0;
             }
         }
-
         return (totalBalance >= 0) ? start : -1;
     }
 };
